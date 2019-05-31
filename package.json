@@ -1,0 +1,23 @@
+{
+  "name": "system_zarzadzania_lekarzami",
+  "version": "1.0.0",
+  "description": "Uni project",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "fix-sequelize": "npm i sequelize@5.0.0-beta.11"
+  },
+  "author": "JC",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.0",
+    "mysql2": "^1.6.1",
+    "pug": "^2.0.3",
+    "sequelize": "^5.0.0-beta.11"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.0"
+  }
+}
