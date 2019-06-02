@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-const sequelize = require('../util/database');
+const sequelize = require('../util/db/database');
 
 const userLogin = sequelize.define('userLogin', {
     idUL: {
@@ -18,6 +18,8 @@ const userLogin = sequelize.define('userLogin', {
     //         id: 'idU'
     //     }
     // }
-}, { timestamps: false })
+}, {
+    timestamps: false
+})
 
 module.exports = userLogin;

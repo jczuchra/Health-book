@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-const sequelize = require('../util/database');
+const sequelize = require('../util/db/database');
 
 const User = sequelize.define('users', {
     idU: {
@@ -9,8 +9,12 @@ const User = sequelize.define('users', {
         allowNull: false,
         primaryKey: true
     },
+    name: Sequelize.STRING,
+    surname: Sequelize.STRING,
     email: Sequelize.STRING,
     password: Sequelize.STRING
-}, { timestamps: false });
+}, {
+    timestamps: false
+});
 
 module.exports = User;

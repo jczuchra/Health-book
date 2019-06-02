@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-const sequelize = require('../util/database');
+const sequelize = require('../util/db/database');
 
 const SpecializationsDictionary = sequelize.define('specializationsDictionaries', {
     idSD: {
@@ -10,6 +10,8 @@ const SpecializationsDictionary = sequelize.define('specializationsDictionaries'
         primaryKey: true,
     },
     specializationName: Sequelize.STRING,
-}, { timestamps: false })
+}, {
+    timestamps: false
+})
 
 module.exports = SpecializationsDictionary;

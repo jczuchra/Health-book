@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-const sequelize = require('../util/database');
+const sequelize = require('../util/db/database');
 
 const prescribedDrugs = sequelize.define('prescribedDrugs', {
     idPD: {
@@ -10,6 +10,8 @@ const prescribedDrugs = sequelize.define('prescribedDrugs', {
         primaryKey: true
     },
     EAN: Sequelize.STRING,
+}, {
+    timestamps: false
 })
 
 module.exports = prescribedDrugs;

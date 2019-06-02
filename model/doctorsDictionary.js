@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-const sequelize = require('../util/database');
+const sequelize = require('../util/db/database');
 
 const DoctorsDictionary = sequelize.define('doctorsDictionaries', {
     idDD: {
@@ -14,6 +14,8 @@ const DoctorsDictionary = sequelize.define('doctorsDictionaries', {
     phone: Sequelize.STRING,
     email: Sequelize.STRING,
     NPWZ: Sequelize.STRING
-}, { timestamps: false })
+}, {
+    timestamps: false
+})
 
 module.exports = DoctorsDictionary;

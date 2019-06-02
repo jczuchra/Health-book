@@ -1,0 +1,21 @@
+body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    background-image: url('../images/computer-1149148_1920.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+.login-input-container {
+    margin-top: 25%;
+    border: 2px solid black;
+    background-color: rgba(255, 255, 255, 0.95);
+    width: auto;
+    border-radius: 12px
+}

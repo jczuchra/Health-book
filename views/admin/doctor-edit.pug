@@ -1,0 +1,45 @@
+extends ../head.pug
+
+block head
+    title Health book - doctor edit
+block content
+    include menu.pug
+    .container
+        .row
+            .col.offset-s3.s6.form-container
+                form(action="/doctor-edit", method="post" )
+                    .col.offset-s1.s10.input-field
+                        h4.center Edit doctor
+                    .col.offset-s1.s10.input-field
+                        i.material-icons.prefix face
+                        input(type="text" name="name" value=doctor.name required )
+                        label(for="name") Name
+                    .col.offset-s1.s10.input-field
+                        i.material-icons.prefix assignment_ind
+                        input(type="text" name="surname" value=doctor.surname required )
+                        label(for="surname") Surname
+                    .col.offset-s1.s10.input-field
+                        i.material-icons.prefix perm_identity
+                        input(type="text" name="specialization" value=specialization.specializationName required)
+                        label(for="specialization") Specialization
+                    .col.offset-s1.s10.input-field
+                        i.material-icons.prefix phone
+                        input(type="number" name="phone" value=doctor.phone required)
+                        label(for="phone") Phone
+                    .col.offset-s1.s10.input-field
+                        i.material-icons.prefix email
+                        input(type="email" name="email" value=doctor.email required)
+                        label(for="email") Email
+                    .col.offset-s1.s10.input-field
+                        i.material-icons.prefix fingerprint
+                        input(type="text" name="NPWZ" value=doctor.NPWZ required)
+                        label(for="NPWZ") NPWZ
+                    .col.offset-s1.s10.input-field.center
+                        if doctorExists
+                            h6.red-text.center This doctor already exists in our database.
+                    .col.offset-s1.s10.input-field.center
+                        input(type="hidden", name="doctorId" value = doctor.idDD)
+                        input(type="hidden" name="specId" value = specialization.idSD)
+                        input(type="submit", value="Save").btn.blue.darken-1
+
+    

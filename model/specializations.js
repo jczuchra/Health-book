@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-const sequelize = require('../util/database');
+const sequelize = require('../util/db/database');
 
 const Specializations = sequelize.define('specializations', {
     idS: {
@@ -9,21 +9,8 @@ const Specializations = sequelize.define('specializations', {
         autoIncrement: true,
         primaryKey: true
     },
-    // pole: Sequelize.STRING,
-    // docDict_idDD: {
-    //     type: Sequelize.INTEGER,
-    //     references: {
-    //         model: 'doctorsDictionaries',
-    //         id: 'idDD'
-    //     }
-    // },
-    // specDict_idSD: {
-    //     type: Sequelize.INTEGER,
-    //     references: {
-    //         model: 'specializationsDictionaries',
-    //         id: 'idSD'
-    //     }
-    // }
-}, { timestamps: false })
+}, {
+    timestamps: false
+})
 
 module.exports = Specializations;

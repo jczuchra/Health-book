@@ -1,0 +1,30 @@
+.striped {
+    border: 1px solid black;
+    margin-top: 5%;
+}
+
+.delete {
+    color: black;
+    display: inline;
+    border: none;
+    background-color: transparent;
+}
+
+.delete:hover {
+    color: rgba(34, 96, 212, 0.788);
+    cursor: pointer;
+}
+
+.buttons-container {
+    display: flex;
+}
+
+.form-container {
+    border: 1px solid black;
+    border-radius: 12px;
+    margin-top: 5%;
+}
+
+.primary-background {
+    background-color: rgba(201, 201, 201, 0.151);
+}
