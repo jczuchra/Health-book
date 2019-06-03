@@ -31,6 +31,7 @@ app.use(adminRoutes);
 sequelize
     .sync()
     .then(result => {
+        console.log(process.env.DATABASE_URL);
         app.listen(process.env.PORT || 3000);
     })
     .catch(err => {
