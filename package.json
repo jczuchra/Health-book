@@ -4,7 +4,7 @@
   "description": "Uni project",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "fix-sequelize": "npm i sequelize@5.0.0-beta.11"
   },
