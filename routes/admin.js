@@ -20,8 +20,14 @@ router.post('/doctor-edit', adminController.postDoctorEdit);
 
 router.get('/drugs', adminController.getDrugs);
 
+router.post('/drugs', adminController.postDrugs);
+
 router.get('/add-drug', adminController.getAddDrug);
 
 router.post('/add-drug', adminController.postAddDrug);
+
+router.get('/drug-edit', adminController.getEditDrug);
+
+router.post('/drug-edit', adminController.postEditDrug);
 
 module.exports = router;

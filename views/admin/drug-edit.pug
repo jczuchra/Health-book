@@ -1,35 +1,36 @@
 extends ../head.pug
 
 block head
-    title Health book - add drug
+    title Health book - drug edit
 block content
     include menu.pug
     .container
         .row
             .col.offset-s3.s6.form-container
-                form(action="/admin/add-drug", method="post")
+                form(action="/admin/drug-edit", method="post" )
                     .col.offset-s1.s10.input-field
                         h4.center Add drug
                     .col.offset-s1.s10.input-field
                         i.material-icons.prefix face
-                        input(type="text" name="name" required)
+                        input(type="text" name="name" value= drug.name required)
                         label(for="name") Name
                     .col.offset-s1.s10.input-field
                         i.material-icons.prefix favorite
-                        input(type="text" name="medication" required)
+                        input(type="text" name="medication" value=drug.medication required)
                         label(for="medication") Medication
                     .col.offset-s1.s10.input-field
                         i.material-icons.prefix work
-                        input(type="text" name="pack" required)
+                        input(type="text" name="pack" value=drug.pack required)
                         label(for="pack") Pack
                     .col.offset-s1.s10.input-field
                         i.material-icons.prefix fingerprint
-                        input(type="text" name="EAN" required)
+                        input(type="text" name="EAN" value=drug.ean required)
                         label(for="EAN") EAN
                     .col.offset-s1.s10.input-field.center
                         if drugExist
                             h6.red-text.center This drug already exists in our database.
                     .col.offset-s1.s10.input-field.center
-                        input(type="submit", value="Add").btn.blue.darken-1
+                        input(type="submit", value="Save").btn.blue.darken-1
+                        input(type="hidden", name="drugId" value = drug.idDsD)
 
     

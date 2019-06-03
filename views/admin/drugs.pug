@@ -21,13 +21,13 @@ block content
                         td  #{drug.EAN}
                         td
                             .buttons-container
-                                form(action="/drugs", method="post")
+                                form(action="/admin/drugs", method="post")
                                     input(type="hidden", name="drugId" value=drug.idDsD)
                                     input(type="submit", value="delete").delete.material-icons
-                                form(action="/drug-edit", method="get")
-                                    input(type="hidden", name="editId" value=drug.idDD)
+                                form(action="/admin/drug-edit", method="get")
+                                    input(type="hidden", name="editId" value=drug.idDsD)
                                     input(type="submit", value="border_color").delete.material-icons
             .row
                 .col.l12
-                    a(href="/add-drug").btn-floating.blue.darken-3.right 
+                    a(href="/admin/add-drug").btn-floating.blue.darken-3.right 
                         i.material-icons add

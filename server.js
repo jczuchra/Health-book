@@ -2,6 +2,7 @@ const path = require('path');
 
 const express = require('express');
 const bodyParser = require('body-parser');
+const session = rqeuire('express-session');
 
 const sequelize = require('./util/db/database');
 require('./util/db/relations');
@@ -19,19 +20,20 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 
+app.use(session({ secret: 'my secret', resave: false, saveUninitialized: false }));
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(sharedRoutes);
 
 app.use(userRoutes);
 
-app.use(adminRoutes);
+app.use('/admin', adminRoutes);
 
 
 sequelize
     .sync()
     .then(result => {
-        console.log(process.env.DATABASE_URL);
         app.listen(process.env.PORT || 3000);
     })
     .catch(err => {

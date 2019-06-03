@@ -23,13 +23,13 @@ block content
                         td  #{doctor.NPWZ}
                         td
                             .buttons-container
-                                form(action="/doctors", method="post")
+                                form(action="/admin/doctors", method="post")
                                     input(type="hidden", name="doctorId" value=doctor.idDD)
                                     input(type="submit", value="delete").delete.material-icons
-                                form(action="/doctor-edit", method="get")
+                                form(action="/admin/doctor-edit", method="get")
                                     input(type="hidden", name="editId" value=doctor.idDD)
                                     input(type="submit", value="border_color").delete.material-icons
             .row
                 .col.l12
-                    a(href="/add-doctor").btn-floating.blue.darken-3.right 
+                    a(href="/admin/add-doctor").btn-floating.blue.darken-3.right 
                         i.material-icons add
