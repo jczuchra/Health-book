@@ -2,7 +2,7 @@ const path = require('path');
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const session = rqeuire('express-session');
+const session = require('express-session');
 
 const sequelize = require('./util/db/database');
 require('./util/db/relations');
