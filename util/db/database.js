@@ -1,9 +1,11 @@
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('jczuchr1', 'jczuchr1', 'omCBheoJRPhqhhaC', {
-    dialect: 'mysql',
-    host: 'mysql.agh.edu.pl',
-    port: '3306'
+sequelize = new Sequelize(process.env.DATABASE_URL, {
+    dialect: 'postgres',
+    protocol: 'postgres',
+    dialectOptions: {
+        ssl: true
+    }
 });
 
 
