@@ -12,9 +12,10 @@ const User = sequelize.define('users', {
     name: Sequelize.STRING,
     surname: Sequelize.STRING,
     email: Sequelize.STRING,
-    password: Sequelize.STRING
+    password: Sequelize.STRING,
+    admin: Sequelize.BOOLEAN,
 }, {
-    timestamps: false
-});
+        timestamps: false
+    });
 
 module.exports = User;

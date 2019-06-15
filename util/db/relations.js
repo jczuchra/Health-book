@@ -1,16 +1,19 @@
-//Users stuff
-const User = require('../../model/user');
-const UserLogin = require('../../model/userLogin');
-const Visit = require('../../model/visit');
-
 //Doctors stuff
-const DoctorsDictionary = require('../../model/doctorsDictionary');
 const SpecializationsDictionary = require('../../model/specializationsDictionary');
 const Specializations = require('../../model/specializations');
+const DoctorsDictionary = require('../../model/doctorsDictionary');
+
+
 
 //Drugs stuff
-const PrescribedDrugs = require('../../model/prescribedDrugs');
 const DrugsDictionary = require('../../model/drugsDictionary');
+const PrescribedDrugs = require('../../model/prescribedDrugs');
+
+
+//Users stuff
+const UserLogin = require('../../model/userLogin');
+const User = require('../../model/user');
+const Visit = require('../../model/visit');
 
 //Drugs Relations
 Visit.hasMany(PrescribedDrugs);

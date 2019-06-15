@@ -4,30 +4,32 @@ const router = express.Router();
 
 const adminController = require('../controller/admin');
 
+const isAuth = require('../middleware/isAuth');
+
 // router.get('/doctors', adminController.getDoctors);
 
-router.get('/add-doctor', adminController.getAddDoctor);
+router.get('/add-doctor', isAuth, adminController.getAddDoctor);
 
-router.post('/add-doctor', adminController.postAddDoctor);
+router.post('/add-doctor', isAuth, adminController.postAddDoctor);
 
-router.get('/doctors', adminController.getDoctors);
+router.get('/doctors', isAuth, adminController.getDoctors);
 
-router.post('/doctors', adminController.postDoctors);
+router.post('/doctors', isAuth, adminController.postDoctors);
 
-router.get('/doctor-edit', adminController.getDoctorEdit);
+router.get('/doctor-edit', isAuth, adminController.getDoctorEdit);
 
-router.post('/doctor-edit', adminController.postDoctorEdit);
+router.post('/doctor-edit', isAuth, adminController.postDoctorEdit);
 
-router.get('/drugs', adminController.getDrugs);
+router.get('/drugs', isAuth, adminController.getDrugs);
 
-router.post('/drugs', adminController.postDrugs);
+router.post('/drugs', isAuth, adminController.postDrugs);
 
-router.get('/add-drug', adminController.getAddDrug);
+router.get('/add-drug', isAuth, adminController.getAddDrug);
 
-router.post('/add-drug', adminController.postAddDrug);
+router.post('/add-drug', isAuth, adminController.postAddDrug);
 
-router.get('/drug-edit', adminController.getEditDrug);
+router.get('/drug-edit', isAuth, adminController.getEditDrug);
 
-router.post('/drug-edit', adminController.postEditDrug);
+router.post('/drug-edit', isAuth, adminController.postEditDrug);
 
 module.exports = router;
