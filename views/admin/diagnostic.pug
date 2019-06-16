@@ -1,0 +1,30 @@
+extends ../head.pug
+
+block head
+    title Health book - diagnostics
+block content
+    body.primary-background
+        include menu.pug
+        .container
+            h4.center Diagnostic tests
+            table.striped.highlight.responsive-table
+                tr
+                    th Name
+                    th Description
+                    th  
+                each diagnostic in diagnostics
+                    tr
+                        td  #{diagnostic.name}
+                        td  #{diagnostic.description}
+                        td
+                            .buttons-container
+                                form(action="/admin/diagnostic", method="post")
+                                    input(type="hidden", name="diagnosticId" value=diagnostic.idDT)
+                                    input(type="submit", value="delete").delete.material-icons
+                                form(action="/admin/diagnostic-edit", method="get")
+                                    input(type="hidden", name="editId" value=diagnostic.idDT)
+                                    input(type="submit", value="border_color").delete.material-icons
+            .row
+                .col.l12
+                    a(href="/admin/add-diagnostic").btn-floating.blue.darken-3.right 
+                        i.material-icons add

@@ -20,10 +20,12 @@ exports.postLogin = (req, res, next) => {
             email
         }
     }).then(user => {
-        if (user.email === email && passwordHash.verify(password, user.password)) {
+        if (user && user.email === email && passwordHash.verify(password, user.password)) {
             req.session.isLoggedIn = true;
             req.session.user = user;
-            res.redirect('/');
+            if (req.session.user.admin)
+                return res.redirect('/admin/');
+            return res.redirect('/');
         }
         else
             res.render(path.join('shared', 'login.pug'), { loginFail: true });
@@ -73,5 +75,5 @@ exports.getLogout = (req, res, next) => {
     req.session.destroy(err => {
         console.log(err);
     })
-    res.redirect('/');
+    res.redirect('/login');
 }

@@ -4,6 +4,7 @@ const Doctor = require('../model/doctorsDictionary');
 const Specialization = require('../model//specializations');
 const SpecializationsDictionary = require('../model/specializationsDictionary');
 const Drugs = require('../model/drugsDictionary');
+const Diagnostic = require('../model/diagnosticDictionary');
 
 const createDoctor = (body, res) => {
     const {
@@ -165,14 +166,12 @@ exports.postAddDrug = (req, res, next) => {
         medication,
         EAN
     } = req.body;
-    console.log(EAN);
     Drugs.find({
         where: {
             EAN
         }
     }).then(drug => {
         if (drug) {
-            console.log(drug.name);
             res.render(path.join('admin', 'add-drug.pug'), {
                 drugExist: true
             });
@@ -207,4 +206,59 @@ exports.postEditDrug = (req, res, next) => {
             res.redirect('/admin/drugs');
         })
     })
+}
+
+exports.getDiagnostic = (req, res, next) => {
+    Diagnostic.findAll().then(diagnostic => {
+        res.render(path.join('admin', 'diagnostic.pug'), { diagnostics: diagnostic });
+    });
+}
+
+exports.postDiagnostic = (req, res, next) => {
+    Diagnostic.findById(req.body.diagnosticId).then(diagnostic => {
+        diagnostic.destroy().then(result => {
+            res.redirect('/admin/diagnostic');
+        })
+    })
+}
+
+exports.getAddDiagnostic = (req, res, next) => {
+    res.render(path.join('admin', 'add-diagnostic.pug'));
+}
+
+exports.postAddDiagnostic = (req, res, next) => {
+    const { name, description } = req.body;
+    Diagnostic.find({
+        where: {
+            name
+        }
+    }).then(diagnostic => {
+        if (diagnostic)
+            res.render(path.join('admin', 'add-diagnostic.pug'), { diagnosticExist: true })
+        else {
+            Diagnostic.create({ name, description });
+            res.redirect('/admin/diagnostic');
+        }
+    })
+}
+
+exports.getEditDiagnostic = (req, res, next) => {
+    Diagnostic.findById(req.query.editId).then(diagnostic => {
+        res.render(path.join('admin', 'diagnostic-edit.pug'), { diagnostic });
+    })
+}
+
+exports.postEditDiagnostic = (req, res, next) => {
+    const { name, description } = req.body;
+    Diagnostic.findById(req.body.diagnosticId).then(diagnostic => {
+        diagnostic.name = name;
+        diagnostic.description = description;
+        diagnostic.save().then(result => {
+            res.redirect('/admin/diagnostic');
+        });
+    })
+}
+
+exports.getAdminHome = (req, res, next) => {
+    res.render(path.join('admin', 'home.pug'));
 }

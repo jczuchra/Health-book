@@ -22,6 +22,8 @@ block content
                             label(for="password") Password
                         .col.offset-s1.s10.input-field.center
                             input(type="submit", value="Login").btn.blue.darken-1
+                        if loginFail
+                            h6.red-text.center Incorrect login or password.
                         .col.offset-s1.s10.input-field
                             a(href="#") Don't remember your password?
                         .col.offset-s1.s10.input-field

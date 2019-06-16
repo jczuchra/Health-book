@@ -1,0 +1,27 @@
+extends ../head.pug
+
+block head
+    title Health book - add diagnostic
+block content
+    include menu.pug
+    .container
+        .row
+            .col.offset-s3.s6.form-container
+                form(action="/admin/add-diagnostic", method="post")
+                    .col.offset-s1.s10.input-field
+                        h4.center Add diagnostic
+                    .col.offset-s1.s10.input-field
+                        i.material-icons.prefix assessment
+                        input(type="text" name="name" required)
+                        label(for="name") Name
+                    .col.offset-s1.s10.input-field
+                        i.material-icons.prefix assignment
+                        input(type="text" name="description" required)
+                        label(for="description") Description
+                    .col.offset-s1.s10.input-field.center
+                        if diagnosticExist
+                            h6.red-text.center This diagnositic already exists in our database.
+                    .col.offset-s1.s10.input-field.center
+                        input(type="submit", value="Add").btn.blue.darken-1
+
+    

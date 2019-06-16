@@ -6,7 +6,7 @@ const adminController = require('../controller/admin');
 
 const isAuth = require('../middleware/isAuth');
 
-// router.get('/doctors', adminController.getDoctors);
+router.get('/', isAuth, adminController.getAdminHome);
 
 router.get('/add-doctor', isAuth, adminController.getAddDoctor);
 
@@ -15,6 +15,18 @@ router.post('/add-doctor', isAuth, adminController.postAddDoctor);
 router.get('/doctors', isAuth, adminController.getDoctors);
 
 router.post('/doctors', isAuth, adminController.postDoctors);
+
+router.get('/diagnostic', isAuth, adminController.getDiagnostic);
+
+router.post('/diagnostic', isAuth, adminController.postDiagnostic);
+
+router.get('/add-diagnostic', isAuth, adminController.getAddDiagnostic);
+
+router.post('/add-diagnostic', isAuth, adminController.postAddDiagnostic);
+
+router.get('/diagnostic-edit', isAuth, adminController.getEditDiagnostic);
+
+router.post('/diagnostic-edit', isAuth, adminController.postEditDiagnostic);
 
 router.get('/doctor-edit', isAuth, adminController.getDoctorEdit);
 

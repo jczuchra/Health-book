@@ -35,13 +35,6 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 
-// app.get('/', (req, res, next) => {
-//     console.log('Halo halo');
-//     if (!req.session.isLoggedIn)
-//         res.redirect('/login');
-//     next();
-// })
-
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(sharedRoutes);
@@ -54,7 +47,7 @@ app.use(r404);
 
 
 sequelize
-    .sync({ force: true })
+    .sync()
     .then(result => {
         User.find({
             where: {
