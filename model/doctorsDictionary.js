@@ -13,9 +13,10 @@ const DoctorsDictionary = sequelize.define('doctorsDictionaries', {
     surname: Sequelize.STRING,
     phone: Sequelize.STRING,
     email: Sequelize.STRING,
+    spec: Sequelize.STRING,
     NPWZ: Sequelize.STRING
 }, {
-    timestamps: false
-})
+        timestamps: false
+    })
 
 module.exports = DoctorsDictionary;

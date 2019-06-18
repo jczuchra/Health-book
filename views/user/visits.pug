@@ -1,0 +1,28 @@
+extends ../head.pug
+block content
+    body
+        include menu.pug
+        .container
+            .row
+                each visit in visits
+                    .col.s12.m6.l3
+                        .card
+                            .card-content
+                                span.card-title Visit
+                                p Time: #{visit.date}
+                                p Doctor: #{visit.doctorsDictionaryIdDD}
+                                if visit.status
+                                    p Status: Completed
+                                if !visit.status
+                                    p Status: Not completed
+                                p Diagnose: #{visit.diagnose}
+                            .card-action
+                                form(action='/visits' method='POST').center
+                                    input(type="hidden", name="visitId" value=visit.idV)
+                                    input(type="submit", value="delete").delete.material-icons
+                .col.s12.m6.l3
+                    .card
+                        .card-content
+                            span.card-title.center Add visit
+                            form(action='/add-visit' method='GET').center
+                                input(type="submit", value="add").btn-floating.add.material-icons.blue.darken-3

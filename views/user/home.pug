@@ -3,19 +3,5 @@ extends ../head.pug
 block head
     title Health book
 block content
-    nav
-        .nav-wrapper.blue
-            .container
-                a.brand-logo Health book
-                ul.right.hide-on-med-and-down
-                    li
-                        a(href="/visits") Visits
-                    li
-                        a Koszalin
-                    li
-                        a Koszalin
-                    li
-                        a(href='/logout') Logout
-                ul(id="nav-mobile").right.hide-on-large-only
-                    a(href="#")
-                        i.material-icons menu
+    body
+    include menu.pug

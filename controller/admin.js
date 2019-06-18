@@ -30,6 +30,7 @@ const createDoctor = (body, res) => {
                 surname,
                 email,
                 phone,
+                spec: specialization,
                 NPWZ
             })
                 .then(doctor => {
@@ -97,6 +98,7 @@ const postEditDoctorData = (req, res) => {
         doctor.phone = req.body.phone;
         doctor.email = req.body.email;
         doctor.NPWZ = req.body.NPWZ;
+        doctor.spec = req.body.specialization;
         doctor.save()
     })
     SpecializationsDictionary.findById(req.body.specId).then(specialization => {

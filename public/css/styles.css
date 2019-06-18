@@ -15,6 +15,18 @@
     cursor: pointer;
 }
 
+.add {
+    color: black;
+    display: inline;
+    border: none;
+    background-color: transparent;
+}
+
+.add:hover {
+    color: white;
+    cursor: pointer;
+}
+
 .buttons-container {
     display: flex;
 }

@@ -47,7 +47,7 @@ app.use(r404);
 
 
 sequelize
-    .sync()
+    .sync({force: true})
     .then(result => {
         User.find({
             where: {
